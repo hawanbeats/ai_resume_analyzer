@@ -1,0 +1,224 @@
+{
+    "1.pdf": {
+        "name": "Functional Resume",
+        "email": "jwsmith@colostate.edu",
+        "phone": "N/A",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {},
+        "scores": {
+            "total_score": 0
+        },
+        "target_category": "Deep_Learning"
+    },
+    "2.pdf": {
+        "name": "Christopher Morgan",
+        "email": "christoper.morgan@gmail.com",
+        "phone": "+44 (0)20 7666 8555",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "Java",
+                "SQL"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 10,
+            "total_score": 10
+        },
+        "target_category": "Deep_Learning"
+    },
+    "3.pdf": {
+        "name": "Christopher Summary",
+        "email": "christoper.m@gmail.com",
+        "phone": "+44 (0)20 7666 8555",
+        "linkedin": "linkedin.com/christopher.morgan",
+        "github": "N/A",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "JavaScript",
+                "SQL"
+            ],
+            "Soft_Skills": [
+                "Project Management"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 10,
+            "Soft_Skills": 2.5,
+            "total_score": 12.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "4.pdf": {
+        "name": "CHRISTOPER Summary",
+        "email": "christoper.m@gmail.com",
+        "phone": "+44 (0)20 7666 8555",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "JavaScript",
+                "SQL"
+            ],
+            "Soft_Skills": [
+                "Project Management"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 10,
+            "Soft_Skills": 2.5,
+            "total_score": 12.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "5.pdf": {
+        "name": "Senior Web",
+        "email": "christoper.morgan@gmail.com",
+        "phone": "+49 800 600 600\n09",
+        "linkedin": "linkedin.com/christopher.morgan",
+        "github": "N/A",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "JavaScript",
+                "SQL"
+            ],
+            "Soft_Skills": [
+                "Project Management"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 10,
+            "Soft_Skills": 2.5,
+            "total_score": 12.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "6.pdf": {
+        "name": "Elizabeth Holmes",
+        "email": "elizabeth.holmes@coolfreecv.com",
+        "phone": "+1 (970) 333-3833",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Soft_Skills": [
+                "Leadership"
+            ]
+        },
+        "scores": {
+            "Soft_Skills": 2.5,
+            "total_score": 2.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "7.pdf": {
+        "name": "HASAN DAMIRLI",
+        "email": "damirlihasan2002@gmail.com",
+        "phone": "+90 535 570 0625",
+        "linkedin": "N/A",
+        "github": "https://github.com/hawanbeats",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "Python"
+            ],
+            "Deep_Learning": [
+                "Transformers"
+            ],
+            "Natural_Language_Processing": [
+                "Sentiment Analysis"
+            ],
+            "AI_Tools_and_Frameworks": [
+                "OpenCV"
+            ],
+            "Soft_Skills": [
+                "Communication"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 5,
+            "Deep_Learning": 15,
+            "Natural_Language_Processing": 10,
+            "AI_Tools_and_Frameworks": 10,
+            "Soft_Skills": 2.5,
+            "total_score": 42.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "cv-sample-english_EPFfGOG.pdf": {
+        "name": "Picture Space",
+        "email": "cyilmaz@bilgi.edu.tr",
+        "phone": "N/A",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Soft_Skills": [
+                "Communication",
+                "Leadership"
+            ]
+        },
+        "scores": {
+            "Soft_Skills": 5.0,
+            "total_score": 5.0
+        },
+        "target_category": "Deep_Learning"
+    },
+    "Infographic Resume in Light Orange White Color Block Style.pdf": {
+        "name": "WORK HISTORY",
+        "email": "hello@reallygreatsite.com",
+        "phone": "N/A",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {},
+        "scores": {
+            "total_score": 0
+        },
+        "target_category": "Deep_Learning"
+    },
+    "Modern Abstract Resume.pdf": {
+        "name": "OLIVIA\nRODRIGUEZ",
+        "email": "hello@reallygreatsite.com",
+        "phone": "+123-456-7890",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Soft_Skills": [
+                "Communication"
+            ]
+        },
+        "scores": {
+            "Soft_Skills": 2.5,
+            "total_score": 2.5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "Olive Natrural Graphic Designer Infographic Resume.pdf": {
+        "name": "RACHELLE\nBEAUDRY",
+        "email": "HELLO@REALLYGREATSITE.COM",
+        "phone": "+123-456-7890",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {
+            "Programming_and_Fundamentals": [
+                "R"
+            ]
+        },
+        "scores": {
+            "Programming_and_Fundamentals": 5,
+            "total_score": 5
+        },
+        "target_category": "Deep_Learning"
+    },
+    "White and Green Infographic Resume.pdf": {
+        "name": "Annori\nSchumacher",
+        "email": "hello@reallygreatsite.com",
+        "phone": "+123-456-7890",
+        "linkedin": "N/A",
+        "github": "N/A",
+        "skills": {},
+        "scores": {
+            "total_score": 0
+        },
+        "target_category": "Deep_Learning"
+    }
+}
