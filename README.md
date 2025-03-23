@@ -13,8 +13,8 @@ Bu proje, özgeçmişleri analiz ederek ve adayları becerilerine, deneyimlerine
 ## 📂 Kurulum
 1. Repoyu klonlayın:
 ``
-git clone https://github.com/hawanbeats/resume_scorer.git
-cd resume_scorer
+git clone https://github.com/hawanbeats/ai_resume_analyzer.git
+cd ai_resume_analyzer
 ``
 2. Gerekli bağımlılıkları yükleyin:
 ``
