@@ -1,8 +1,5 @@
 # AI Resume Analyzer 🤖📄
 
-## 📌 Proje Özeti
-Bu proje, özgeçmişleri analiz ederek ve adayları becerilerine, deneyimlerine ve eğitimlerine göre sıralayarak işe alım sürecinde İK departmanlarına yardımcı olmak için tasarlanmıştır. Araç, özellikle Yapay Zeka, Veri Bilimi, Makine Öğrenimi ve ilgili alanlardaki teknik roller için faydalıdır.
-
 ## 🚀 Özellikler
 - **PDF Ayrıştırma:** `pdfplumber` ve `PyMuPDF` kullanılarak PDF özgeçmiş ayrıştırmayı destekler.
 - **Yetenek Çıkarımı:** Özgeçmişlerden yapay zeka ile ilgili becerileri çıkarır.
