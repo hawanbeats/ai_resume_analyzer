@@ -1,11 +1,14 @@
 # AI Resume Analyzer 🤖📄
 
 ## 🚀 Özellikler
-- **PDF Ayrıştırma:** `pdfplumber` ve `PyMuPDF` kullanılarak PDF özgeçmiş ayrıştırmayı destekler.
-- **Yetenek Çıkarımı:** Özgeçmişlerden yapay zeka ile ilgili becerileri çıkarır.
-- **Kullanıcı Dostu Çıktı:** Aday ayrıntıları ve puanları içeren bir JSON dosyası oluşturur.
+- **PDF Ayrıştırma**: `pdfplumber` ve `PyMuPDF` kullanılarak PDF özgeçmiş ayrıştırmayı destekler.
+- **Yetenek Çıkarımı**: Özgeçmişlerden yapay zeka ile ilgili becerileri çıkarır.
+- **Kullanıcı Dostu Çıktı**: Aday ayrıntıları ve puanları içeren bir JSON dosyası oluşturur.
 - **Puanlama Sistemi**: Adayları becerilerine, deneyimlerine ve eğitimlerine göre puanlar.
 - **Kategori Tabanlı Sıralama**: Adayları belirli iş kategorilerine göre sıralar (örneğin Veri Bilimi, Makine Öğrenimi, Doğal Dil İşleme).
+
+## 🚨 Sorunlar
+- **İsim-Soyisim Çıkartma Hatası**: Model, özgeçmişlerden isim ve soyisim bilgilerini alıyor ancak yanlış eşleştirmeler yapabiliyor.
 
 ## 📂 Kurulum
 1. Repoyu klonlayın:
