@@ -4,94 +4,24 @@ import fitz  # type: ignore
 import re
 import json
 from collections import defaultdict
+from transformers import pipeline
 
-# 📌 Yapay Zeka sektörüne özel beceri listesi
-# 📌 AI becerilerini tek bir listeye çevir
-ALL_AI_SKILLS = {
-    # 1. Programlama Dilleri ve Temel Beceriler
-    "Programming_and_Fundamentals": [
-        "Python", "R", "Julia", "Java", "C++", "JavaScript", "SQL", "Bash Scripting",
-        "Data Structures", "Algorithms", "Version Control (Git)", "Debugging", "Code Optimization"
-    ],
+# JSON dosyalarını oku
 
-    # 2. Makine Öğrenmesi (Machine Learning)
-    "Machine_Learning": [
-        "Supervised Learning", "Unsupervised Learning", "Reinforcement Learning",
-        "Semi-Supervised Learning", "Self-Supervised Learning", "Ensemble Methods",
-        "Model Evaluation (Precision, Recall, F1, ROC-AUC)", "Hyperparameter Tuning (Grid Search, Random Search, Bayesian Optimization)",
-        "Feature Engineering", "Feature Selection", "Dimensionality Reduction (PCA, t-SNE)",
-        "Time Series Analysis", "Anomaly Detection", "Recommendation Systems", "Clustering (K-Means, DBSCAN)"
-    ],
+with open("degree.json", "r", encoding="utf-8") as f:
+    DEGREES = json.load(f)
 
-    # 3. Derin Öğrenme (Deep Learning)
-    "Deep_Learning": [
-        "Neural Networks (MLP, CNN, RNN, GAN)", "TensorFlow", "PyTorch", "Keras",
-        "Transfer Learning", "Generative Models (GANs, VAEs)", "Optimization Techniques (Adam, SGD, RMSprop)",
-        "Attention Mechanisms", "Transformers", "Explainable AI (XAI)", "Self-Supervised Learning",
-        "Few-Shot Learning", "Meta-Learning", "Graph Neural Networks (GNNs)"
-    ],
+with open("universities.json", "r", encoding="utf-8") as f:
+    UNIVERSITIES = json.load(f)
 
-    # 4. Doğal Dil İşleme (Natural Language Processing - NLP)
-    "Natural_Language_Processing": [
-        "Text Preprocessing (Tokenization, Lemmatization, Stemming)", "Sentiment Analysis",
-        "Named Entity Recognition (NER)", "Topic Modeling (LDA, NMF)", "Word Embeddings (Word2Vec, GloVe, FastText)",
-        "Transformer Models (BERT, GPT, T5)", "Text Generation", "Machine Translation",
-        "Speech Recognition (ASR)", "Chatbots", "Question Answering Systems", "Text Summarization",
-        "Dialogue Systems", "Multilingual NLP", "Emotion Detection in Text"
-    ],
+with open("faculties.json", "r", encoding="utf-8") as f:
+    FACULTIES = json.load(f)
 
-    # 5. Bilgisayarlı Görü (Computer Vision)
-    "Computer_Vision": [
-        "Image Processing (OpenCV, PIL)", "Object Detection (YOLO, SSD, Faster R-CNN)",
-        "Image Segmentation (U-Net, Mask R-CNN)", "Facial Recognition", "Optical Character Recognition (OCR)",
-        "Pose Estimation", "Video Analysis", "Generative Models for Images (StyleGAN, CycleGAN)",
-        "3D Vision", "Medical Image Analysis", "Scene Understanding", "Image Captioning"
-    ],
+with open("filter_titles.json", "r", encoding="utf-8") as f:
+    FILTER_TITLES = json.load(f)
 
-    # 6. Veri Bilimi ve Analitiği (Data Science and Analytics)
-    "Data_Science_and_Analytics": [
-        "Data Wrangling (Pandas, NumPy)", "Data Visualization (Matplotlib, Seaborn, Plotly)",
-        "Statistical Analysis (Hypothesis Testing, A/B Testing)", "Big Data Tools (Hadoop, Spark)",
-        "Data Pipelines (ETL, Airflow)", "Database Management (SQL, NoSQL)", "Cloud Platforms (AWS, GCP, Azure)",
-        "Experimentation and Tracking (MLflow, Weights & Biases)", "Data Governance", "Data Cleaning",
-        "Data Annotation", "Data Augmentation", "Feature Stores"
-    ],
-
-    # 7. AI Araçları ve Çerçeveler (AI Tools and Frameworks)
-    "AI_Tools_and_Frameworks": [
-        "Scikit-Learn", "XGBoost", "LightGBM", "CatBoost", "TensorFlow", "PyTorch", "Keras",
-        "Hugging Face Transformers", "OpenCV", "AutoML (H2O, AutoKeras)", "Model Deployment (Flask, FastAPI, Docker)",
-        "ONNX", "MLOps Tools (Kubeflow, TFX)", "Ray", "Dask"
-    ],
-
-    # 8. Matematik ve İstatistik (Mathematics and Statistics)
-    "Mathematics_and_Statistics": [
-        "Linear Algebra", "Calculus", "Probability and Statistics", "Numerical Methods",
-        "Optimization Theory", "Information Theory", "Bayesian Statistics", "Stochastic Processes",
-        "Graph Theory", "Game Theory"
-    ],
-
-    # 9. Bulut ve Dağıtım (Cloud and Deployment)
-    "Cloud_and_Deployment": [
-        "AWS SageMaker", "Google AI Platform", "Azure ML", "Docker", "Kubernetes",
-        "API Development (REST, GraphQL)", "Monitoring (Prometheus, Grafana)", "Serverless Computing",
-        "Edge Computing", "Model Serving (TensorFlow Serving, Triton)", "CI/CD Pipelines"
-    ],
-
-    # 10. Yumuşak Beceriler (Soft Skills)
-    "Soft_Skills": [
-        "Problem-Solving", "Critical Thinking", "Communication", "Collaboration",
-        "Project Management", "Time Management", "Leadership", "Adaptability",
-        "Creativity", "Ethical Decision-Making"
-    ],
-
-    # 11. Yeni Nesil AI Becerileri (Emerging AI Skills)
-    "Emerging_AI_Skills": [
-        "Federated Learning", "Edge AI", "Quantum Machine Learning", "AI Ethics",
-        "AI for Healthcare", "Multimodal AI", "AI in Robotics", "AI for Climate Science",
-        "AI in Finance", "AI for Cybersecurity", "AI in Education", "AI for Autonomous Systems"
-    ]
-}
+with open("all_ai_skills.json", "r", encoding="utf-8") as f:
+    ALL_AI_SKILLS = json.load(f)
 
 # 📌 Skorlama fonksiyonu
 def calculate_scores(skills, category_weights):
@@ -153,16 +83,48 @@ def extract_skills_from_text(text, skills_dict):
                 skills[skill_category].append(skill)
     return skills
 
+# 📌 İsim ve soyisim çıkarma fonksiyonu
+def is_valid_name(name):
+    """İsmin geçerli olup olmadığını kontrol eder."""
+    if not name or len(name.split()) != 2:  # İsim ve soyisim tam olmalı (2 kelime)
+        return False
+    if any(char.isdigit() for char in name):  # Sayı içermemeli
+        return False
+    if "@" in name or "http" in name:  # E-posta veya URL olmamalı
+        return False
+    if name.lower() in FILTER_TITLES:  # Filtre listesinde olmamalı
+        return False
+    return True
+
+def extract_full_name_from_text(text):
+    """PDF'ten çıkarılan metinden isim ve soyismi belirler."""
+    lines = text.split("\n")[:10]  # İlk 10 satırı al
+    candidate_names = []
+
+    for line in lines:
+        words = clean_text(line).split()
+        if len(words) == 2 and is_valid_name(" ".join(words)):  # İsim soyisim tek satırda
+            return words[0].capitalize() + " " + words[1].capitalize()
+        candidate_names.extend(words)
+
+    # Alternatif olarak alt alta yazılmış isimleri kontrol et
+    for i in range(len(candidate_names) - 1):
+        full_name = candidate_names[i] + " " + candidate_names[i + 1]
+        if is_valid_name(full_name):
+            return full_name.capitalize()
+
+    return "N/A"  # İsim bulunamazsa "N/A" döndür
+
 # 📌 Kullanıcı bilgilerini çıkarma fonksiyonu
 def extract_user_info_from_text(text):
-    name = re.search(r"\b[A-Z][a-zA-Z'-]+\s+[A-Z][a-zA-Z'-]+\b", text)
-    email = re.search(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
+    email = re.search(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
     phone = re.search(r"\+\d{1,4}[\s-]?\(?\d{1,4}\)?[\s-]?\d{2,4}[\s-]?\d{2,4}[\s-]?\d{2,4}(?![\d-])", text)  # Telefon numarası
     linkedin = re.search(r"(?:https?:\/\/)?(?:www\.)?linkedin\.com\/[a-zA-Z0-9-\._%]+", text)  # LinkedIn profili
     github = re.search(r"(?:https?:\/\/)?(?:www\.)?github\.com\/[a-zA-Z0-9-\._%]+", text)  # GitHub profili
+    name = extract_full_name_from_text(text)  # İsim ve soyisim bilgisi
 
     return {
-        "name": name.group(0) if name else "N/A",
+        "full name": name,
         "email": email.group(0) if email else "N/A",
         "phone": phone.group(0) if phone else "N/A",
         "linkedin": linkedin.group(0) if linkedin else "N/A",
@@ -236,7 +198,7 @@ def save_results_to_json(results, output_file="processed_ai_resumes.json"):
 
 # 📌 Kullanıcıdan hedef kategoriyi al
 def get_target_category_from_user():
-    print("Lütfen aşağıdaki kategorilerden birini seçin:")
+    print("Lütfen aşağıdaki kategorilerden birini seçin: ")
     for i, category in enumerate(ALL_AI_SKILLS.keys(), 1):
         print(f"{i}. {category}")
     choice = int(input("Seçiminiz (numara): "))
@@ -253,7 +215,7 @@ if __name__ == "__main__":
 
     # Kullanıcıdan kaç aday görmek istediğini al
     try:
-        num_candidates = int(input("Kaç aday görmek istersiniz? (Örneğin: 5): "))
+        num_candidates = int(input("Kaç aday görmek istersiniz? "))
         if num_candidates <= 0:
             raise ValueError("Lütfen pozitif bir sayı girin.")
     except ValueError as e:
@@ -270,6 +232,6 @@ if __name__ == "__main__":
     sorted_resumes = sorted(processed_resumes.items(), key=lambda x: x[1]["scores"]["total_score"], reverse=True)
     print(f"\n🔝 En uygun {num_candidates} aday:")
     for i, (file_name, user_info) in enumerate(sorted_resumes[:num_candidates], 1):
-        print(f"{i}. {user_info['name']} - Toplam Puan: {user_info['scores']['total_score']}")
+        print(f"{i}. {user_info['full name']} - Toplam Puan: {user_info['scores']['total_score']}")
 
     print(f"\n✅ {len(processed_resumes)} adet özgeçmiş işlendi ve 'processed_ai_resumes.json' dosyasına kaydedildi.")
