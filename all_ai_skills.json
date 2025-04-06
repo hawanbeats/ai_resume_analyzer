@@ -1,0 +1,74 @@
+{
+    "Programming_and_Fundamentals": [
+        "Python", "R", "Julia", "Java", "C++", "JavaScript", "SQL", "Bash Scripting",
+        "Data Structures", "Algorithms", "Version Control (Git)", "Debugging", "Code Optimization"
+    ],
+
+    "Machine_Learning": [
+        "Supervised Learning", "Unsupervised Learning", "Reinforcement Learning",
+        "Semi-Supervised Learning", "Self-Supervised Learning", "Ensemble Methods",
+        "Model Evaluation (Precision, Recall, F1, ROC-AUC)", "Hyperparameter Tuning (Grid Search, Random Search, Bayesian Optimization)",
+        "Feature Engineering", "Feature Selection", "Dimensionality Reduction (PCA, t-SNE)",
+        "Time Series Analysis", "Anomaly Detection", "Recommendation Systems", "Clustering (K-Means, DBSCAN)"
+    ],
+
+    "Deep_Learning": [
+        "Neural Networks (MLP, CNN, RNN, GAN)", "TensorFlow", "PyTorch", "Keras",
+        "Transfer Learning", "Generative Models (GANs, VAEs)", "Optimization Techniques (Adam, SGD, RMSprop)",
+        "Attention Mechanisms", "Transformers", "Explainable AI (XAI)", "Self-Supervised Learning",
+        "Few-Shot Learning", "Meta-Learning", "Graph Neural Networks (GNNs)"
+    ],
+
+    "Natural_Language_Processing": [
+        "Text Preprocessing (Tokenization, Lemmatization, Stemming)", "Sentiment Analysis",
+        "Named Entity Recognition (NER)", "Topic Modeling (LDA, NMF)", "Word Embeddings (Word2Vec, GloVe, FastText)",
+        "Transformer Models (BERT, GPT, T5)", "Text Generation", "Machine Translation",
+        "Speech Recognition (ASR)", "Chatbots", "Question Answering Systems", "Text Summarization",
+        "Dialogue Systems", "Multilingual NLP", "Emotion Detection in Text"
+    ],
+
+    "Computer_Vision": [
+        "Image Processing (OpenCV, PIL)", "Object Detection (YOLO, SSD, Faster R-CNN)",
+        "Image Segmentation (U-Net, Mask R-CNN)", "Facial Recognition", "Optical Character Recognition (OCR)",
+        "Pose Estimation", "Video Analysis", "Generative Models for Images (StyleGAN, CycleGAN)",
+        "3D Vision", "Medical Image Analysis", "Scene Understanding", "Image Captioning"
+    ],
+
+    "Data_Science_and_Analytics": [
+        "Data Wrangling (Pandas, NumPy)", "Data Visualization (Matplotlib, Seaborn, Plotly)",
+        "Statistical Analysis (Hypothesis Testing, A/B Testing)", "Big Data Tools (Hadoop, Spark)",
+        "Data Pipelines (ETL, Airflow)", "Database Management (SQL, NoSQL)", "Cloud Platforms (AWS, GCP, Azure)",
+        "Experimentation and Tracking (MLflow, Weights & Biases)", "Data Governance", "Data Cleaning",
+        "Data Annotation", "Data Augmentation", "Feature Stores"
+    ],
+
+    "AI_Tools_and_Frameworks": [
+        "Scikit-Learn", "XGBoost", "LightGBM", "CatBoost", "TensorFlow", "PyTorch", "Keras",
+        "Hugging Face Transformers", "OpenCV", "AutoML (H2O, AutoKeras)", "Model Deployment (Flask, FastAPI, Docker)",
+        "ONNX", "MLOps Tools (Kubeflow, TFX)", "Ray", "Dask"
+    ],
+
+    "Mathematics_and_Statistics": [
+        "Linear Algebra", "Calculus", "Probability and Statistics", "Numerical Methods",
+        "Optimization Theory", "Information Theory", "Bayesian Statistics", "Stochastic Processes",
+        "Graph Theory", "Game Theory"
+    ],
+
+    "Cloud_and_Deployment": [
+        "AWS SageMaker", "Google AI Platform", "Azure ML", "Docker", "Kubernetes",
+        "API Development (REST, GraphQL)", "Monitoring (Prometheus, Grafana)", "Serverless Computing",
+        "Edge Computing", "Model Serving (TensorFlow Serving, Triton)", "CI/CD Pipelines"
+    ],
+
+    "Soft_Skills": [
+        "Problem-Solving", "Critical Thinking", "Communication", "Collaboration",
+        "Project Management", "Time Management", "Leadership", "Adaptability",
+        "Creativity", "Ethical Decision-Making"
+    ],
+
+    "Emerging_AI_Skills": [
+        "Federated Learning", "Edge AI", "Quantum Machine Learning", "AI Ethics",
+        "AI for Healthcare", "Multimodal AI", "AI in Robotics", "AI for Climate Science",
+        "AI in Finance", "AI for Cybersecurity", "AI in Education", "AI for Autonomous Systems"
+    ]
+}
